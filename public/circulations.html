@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Circulations</title>
+    <link rel="stylesheet" href="styles/circulations.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -28,6 +30,13 @@
     <section class="velos">
       <h2>Stations VéloStan dans le Grand nancy</h2>
           <div id="map"></div>
+    </section>
+
+    <section class="covid">
+      <div class="canvas">
+        <div class="hospChart"><canvas id="hospChart"></canvas></div>
+        <div class="reaChart"><canvas id="reaChart"></canvas></div> 
+      </div>        
     </section>
     <script type="module" src="main.js"></script>
 </body>

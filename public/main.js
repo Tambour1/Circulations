@@ -5,8 +5,12 @@ import { getAir } from "./js/air.js";
 import { createChart} from "./js/chart.js";
 import { getSars } from "./js/sars.js";
 
+const configResponse = await fetch('/config');
+const config = await configResponse.json();
+const apiKey = config.apiKey;
+
 // Récupération de toutes les données
-const geolocalisation = await getGeolocalisation();
+const geolocalisation = await getGeolocalisation(apiKey);
 await getMeteo(geolocalisation.latitude, geolocalisation.longitude, geolocalisation.ville);
 await getVelos(geolocalisation.latitude, geolocalisation.longitude);
 await getAir();

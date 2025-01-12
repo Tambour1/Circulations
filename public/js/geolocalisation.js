@@ -1,13 +1,10 @@
-// require('dotenv').config();
-export async function getGeolocalisation() {
+export async function getGeolocalisation(apiKey) {
   try {
     // Récupération de l'adresse IP
-    const apiKey = "41d15e5d79cf461fbbab930237377c7a";
-    // if (process.env.APIKEY == "") {
-    //   apiKey = "41d15e5d79cf461fbbab930237377c7a"; // ne doit pas etre exposé normalement
-    // } else {
-    //   apiKey = process.env.APIKEY;
-    // }
+    if (!apiKey) {
+      // Clé API par défaut si l'utilisateur n'a pas configuré de clé
+      apiKey = "41d15e5d79cf461fbbab930237377c7a"; // la clé API n'est pas exposé normalement
+    }
     const ipUrl = 'https://api.ipify.org?format=json';
     const ipResponse = await fetch(ipUrl);
     const ipData = await ipResponse.json();
